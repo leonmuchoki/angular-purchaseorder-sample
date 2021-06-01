@@ -1,3 +1,4 @@
+<h1>PURCHASE ORDER</h1>
 <mat-vertical-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="topFormGroup">
     <form [formGroup]="topFormGroup">
@@ -218,7 +219,16 @@
     </form>
   </mat-step>
 
-    <mat-step [stepControl]="actionFormGroup">
+  <mat-step [stepControl]="actionFormGroup">
+    <form [formGroup]="actionFormGroup">
+      <ng-template matStepLabel>Add / Draw Signature</ng-template>
+      <section>
+          <signature-pad></signature-pad>
+      </section>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="actionFormGroup">
     <form [formGroup]="actionFormGroup">
       <ng-template matStepLabel>Fill Action details</ng-template>
       <section>
@@ -228,7 +238,7 @@
       </section>
       <div>
         <button mat-raised-button color="primary">Reverse Document</button>
-        <button mat-raised-button color="primary">Approve</button>
+        <button mat-raised-button color="primary" (click)="onApproveClick()">Approve</button>
       </div>
     </form>
   </mat-step>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+
+import { SignatureComponent } from '../signature/signature.component';
 
 @Component({
   selector: 'app-purchase-order',
@@ -18,7 +21,9 @@ export class PurchaseOrderComponent implements OnInit {
   statusFormGroup: FormGroup;
   actionFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    public dialog: MatDialog) {}
 
   ngOnInit() {
     this.topFormGroup = this._formBuilder.group({
@@ -60,4 +65,10 @@ export class PurchaseOrderComponent implements OnInit {
       chkActioned: [false]
     });
   }
+
+  onApproveClick() : void {
+     this.dialog.open(SignatureComponent);
+     //this.dialog.open(DialogElementsExampleDialog);
+  }
 }
+
