@@ -1,0 +1,244 @@
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="topFormGroup">
+    <form [formGroup]="topFormGroup">
+      <ng-template matStepLabel>Fill Creator Details</ng-template>
+      <mat-form-field>
+        <mat-label>Created By</mat-label>
+        <input matInput placeholder="Name" formControlName="createdByCtrl" required>
+      </mat-form-field>
+      <section>
+          <p><mat-checkbox formControlName="chkTenderCtrl">From External RFQ/Tender</mat-checkbox></p>
+          <p><mat-checkbox formControlName="chkDonationCtrl">Donation</mat-checkbox></p>
+          <p><mat-checkbox formControlName="chkisLowValueCtrl">isLowValue</mat-checkbox></p>
+          <p><mat-checkbox formControlName="chkInternalCtrl">Internal</mat-checkbox></p>
+          <p><mat-checkbox formControlName="chkAdvertCtrl">Advert</mat-checkbox></p>
+      </section>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="referenceFormGroup">
+    <form [formGroup]="referenceFormGroup">
+      <ng-template matStepLabel>Fill Reference details</ng-template>
+      <mat-form-field>
+        <mat-label>User/Contact</mat-label>
+        <select matNativeControl>
+        <option value="" selected></option>
+        <option value="testuser1">test user 1</option>
+        <option value="testuser2">test user 2</option>
+        <option value="testuser3">test user 3</option>
+        <option value="testuser4">test user 4</option>
+      </select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Assignee</mat-label>
+        <select matNativeControl>
+        <option value="" selected></option>
+        <option value="testuser1">test assignee 1</option>
+        <option value="testuser2">test assignee 2</option>
+      </select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Document No</mat-label>
+        <input matInput placeholder="" formControlName="docNoCtrl" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Contract No</mat-label>
+        <select matNativeControl>
+        <option value="" selected></option>
+        <option value="testcontract1">test contract 1</option>
+        <option value="testcontract2">test contract 2</option>
+      </select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Tender / Quotation Ref</mat-label>
+        <input matInput formControlName="TenderQuotRefCtrl" >
+      </mat-form-field>
+       <mat-form-field>
+        <mat-label>Source of Funds</mat-label>
+        <select matNativeControl>
+        <option value="" selected></option>
+        <option value="testsource1">test source 1</option>
+        <option value="testsource2">test source 2</option>
+      </select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+    <mat-step [stepControl]="dateFormGroup">
+    <form [formGroup]="dateFormGroup">
+      <ng-template matStepLabel>Fill Date Details</ng-template>
+      <mat-form-field>
+        <mat-label>Date Ordered</mat-label>
+        <input matInput [matDatepicker]="dateordered">
+        <mat-datepicker-toggle matSuffix [for]="dateordered"></mat-datepicker-toggle>
+        <mat-datepicker #dateordered>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Date Promised</mat-label>
+        <input matInput [matDatepicker]="datepromised">
+        <mat-datepicker-toggle matSuffix [for]="datepromised"></mat-datepicker-toggle>
+        <mat-datepicker #datepromised>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+    <mat-step [stepControl]="supplierDetailsFormGroup">
+    <form [formGroup]="supplierDetailsFormGroup">
+      <ng-template matStepLabel>Fill Supplier details</ng-template>
+       <mat-form-field>
+        <mat-label>Supplier</mat-label>
+        <input matInput placeholder="Name" formControlName="supplierCtrl">
+       </mat-form-field>
+       <mat-form-field>
+        <mat-label>Supplier Location</mat-label>
+        <select matNativeControl>
+        <option value="" selected></option>
+        <option value="testsuploc1">test supplier location 1</option>
+        <option value="testsuploc2">test supplier location 2</option>
+      </select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="deliveryFormGroup">
+    <form [formGroup]="deliveryFormGroup">
+      <ng-template matStepLabel>Fill Warehouse details</ng-template>
+       <mat-form-field>
+        <mat-label>Warehouse</mat-label>
+        <select matNativeControl>
+        <option value="" selected></option>
+        <option value="testwarehouse1">test warehouse 1</option>
+        <option value="testwarehouse2">test warehouse 2</option>
+      </select>
+      </mat-form-field>
+       <mat-form-field>
+        <mat-label>Delivery Rule</mat-label>
+        <select matNativeControl>
+        <option value="" selected></option>
+        <option value="testdelivery1">test delivery rule 1</option>
+        <option value="testdelivery2">test delivery rule  2</option>
+      </select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+    <mat-step [stepControl]="documentCurrencyFormGroup">
+    <form [formGroup]="documentCurrencyFormGroup">
+      <ng-template matStepLabel>Fill Document Currency details</ng-template>
+       <mat-form-field>
+        <mat-label>Currency</mat-label>
+        <select matNativeControl>
+        <option value="" selected></option>
+        <option value="testcurr1">test currency 1</option>
+        <option value="testcurr2">test currency 2</option>
+      </select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Price List</mat-label>
+        <input matInput placeholder="Standard Price list" formControlName="priceListCtrl">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Price List Version</mat-label>
+        <input matInput placeholder="Standard Price list" formControlName="priceListVersionCtrl">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  
+    <mat-step [stepControl]="paymentDetailsFormGroup">
+    <form [formGroup]="paymentDetailsFormGroup">
+      <ng-template matStepLabel>Fill Payment details</ng-template>
+       <mat-form-field>
+        <mat-label>Payment</mat-label>
+        <select matNativeControl>
+        <option value="" selected></option>
+        <option value="testonCredit1">test onCredit 1</option>
+        <option value="testotherpay">test other payment 2</option>
+      </select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Payment Terms</mat-label>
+        <input matInput placeholder="90 Days" formControlName="paymentTermsCtrl">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="statusFormGroup">
+    <form [formGroup]="statusFormGroup">
+      <ng-template matStepLabel>Fill Status details</ng-template>
+      <mat-form-field>
+        <mat-label>Document Status</mat-label>
+        <input matInput placeholder="Forwarded to Procument Manager" formControlName="docStatusCtrl">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Total Lines</mat-label>
+        <input matInput placeholder="9,000" formControlName="totalLinesCtrl">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Grand Total</mat-label>
+        <input matInput placeholder="" formControlName="grandTotalCtrl">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+    <mat-step [stepControl]="actionFormGroup">
+    <form [formGroup]="actionFormGroup">
+      <ng-template matStepLabel>Fill Action details</ng-template>
+      <section>
+          <p><mat-checkbox formControlName="chkMarkPendingCtrl">Mark Pending</mat-checkbox></p>
+          <p><mat-checkbox formControlName="chkRejectCtrl">Reject</mat-checkbox></p>
+          <p><mat-checkbox formControlName="chkActioned">Actioned</mat-checkbox></p>
+      </section>
+      <div>
+        <button mat-raised-button color="primary">Reverse Document</button>
+        <button mat-raised-button color="primary">Approve</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
